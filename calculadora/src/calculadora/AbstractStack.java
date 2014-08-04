@@ -18,7 +18,7 @@ public abstract class AbstractStack<E> implements Stack<E> {
     }
     
     public boolean isEmpty(){
-        return size()==0;
+        return cont==0;
     }
     
     public int size(){

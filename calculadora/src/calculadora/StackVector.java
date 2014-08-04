@@ -17,7 +17,7 @@ import java.util.*;
  */
 public class StackVector<E>  implements Stack<E>{
 	
-    protected Vector<E> vector;
+    protected Vector<E> data;
     private int cont=0;
     private E temporal;
     
@@ -26,7 +26,7 @@ public class StackVector<E>  implements Stack<E>{
          */
 	public StackVector()
 	{
-		vector = new Vector<E>();
+		data = new Vector<E>();
 	}
         
         /**
@@ -36,7 +36,7 @@ public class StackVector<E>  implements Stack<E>{
          */
 	public void push(E item)
 	{
-                vector.insertElementAt(item,cont);
+                data.addElement(item);
                 cont++;
 	}
         
@@ -46,9 +46,9 @@ public class StackVector<E>  implements Stack<E>{
          */
 	public E pop()
 	{                
-                temporal=vector.elementAt(cont-1);
-                vector.removeElementAt(cont-1);
-                cont--;
+                temporal=data.get(cont-1);
+                data.removeElementAt(cont-1);
+           
 		return temporal;
 	}
         
@@ -58,7 +58,7 @@ public class StackVector<E>  implements Stack<E>{
          */
 	public E peek()
 	{
-		return vector.elementAt(cont-1);
+		return data.get(cont-1);
 	}
         
 	/**
