@@ -10,7 +10,7 @@ import java.util.List;
 
 public class StackLista<E>  extends AbstractStack<E>{
 	
-    protected List<E> list;
+    protected List<E> data;
     private int cont=0;
     private E temporal;
     
@@ -19,7 +19,7 @@ public class StackLista<E>  extends AbstractStack<E>{
          */
 	public StackLista()
 	{
-		list = new List<E>() {};
+		data = new List<E>();
 	}
         
         /**
@@ -29,7 +29,7 @@ public class StackLista<E>  extends AbstractStack<E>{
          */
 	public void push(E item)
 	{
-                list.insertElementAt(item,cont);
+                data.add(item);
                 cont++;
 	}
         
@@ -39,10 +39,7 @@ public class StackLista<E>  extends AbstractStack<E>{
          */
 	public E pop()
 	{                
-                temporal=list.elementAt(cont-1);
-                list.removeElementAt(cont-1);
-                cont--;
-		return temporal;
+            return data.remove(cont);
 	}
         
         /**
@@ -51,7 +48,7 @@ public class StackLista<E>  extends AbstractStack<E>{
          */
 	public E peek()
 	{
-		return list.elementAt(cont-1);
+		return data.get(cont-1);
 	}
         
 	/**
