@@ -19,13 +19,9 @@ public interface List<E>
    public boolean isEmpty();
    // post: returns true iff list has no elements
 
-   public void clear();
-   // post: empties list
-
    public void addFirst(E value);
    // post: value is added to beginning of list
 
-  
    public E getFirst();
    // pre: list is not empty
    // post: returns first value in list
