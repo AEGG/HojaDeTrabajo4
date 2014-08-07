@@ -1,7 +1,8 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * UVG
+ * HDT4
+ * Aaron Giron 13042
+ * Javier Bucaro 130
  */
 
 package calculadora;
@@ -12,9 +13,6 @@ package calculadora;
  */
 public class CircularList<E> extends AbstractList<E> {
     
-    //codgigo tomado de material visto en clase
-    //Aqui comienza codigo tomado
-    //=============================================
     protected Node<E> tail; 
     protected int count;
 
@@ -39,15 +37,12 @@ public class CircularList<E> extends AbstractList<E> {
        }
        count++;
     }
-    //===============================================================
-    //Aqui termina codigo tomado
-
-    @Override
+    
     public int size() {
         return count;
     }
 
-    @Override
+    
     public E getFirst() {
         if(tail!=null){
             return tail.next().value();
