@@ -17,62 +17,61 @@ import static org.junit.Assert.*;
  *
  * @author Acer
  */
-public class StackArrayListTest {
+public class StackVectorTest {
     
    
-
     /**
-     * Test of push method, of class StackArrayList.
+     * Test of push method, of class StackVector.
      */
     @Test
     public void testPush() {
         System.out.println("push");
+        StackVector instance = new StackVector();
         Object item = 3;
-        StackArrayList instance = new StackArrayList();
         instance.push(item);
         Object result = instance.pop();
+        assertEquals(item, result);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
-        assertEquals(item, result);
     }
 
     /**
-     * Test of pop method, of class StackArrayList.
+     * Test of pop method, of class StackVector.
      */
     @Test
     public void testPop() {
         System.out.println("pop");
-        StackArrayList instance = new StackArrayList();
-        Object item = 3;
+        StackVector instance = new StackVector();
+         Object item = 3;
         instance.push(item);
         Object result = instance.pop();
         assertEquals(item, result);
         // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+       // fail("The test case is a prototype.");
     }
 
     /**
-     * Test of peek method, of class StackArrayList.
+     * Test of peek method, of class StackVector.
      */
     @Test
     public void testPeek() {
         System.out.println("peek");
-        StackArrayList instance = new StackArrayList();
+        StackVector instance = new StackVector();
         Object item = 3;
         instance.push(item);
         Object result = instance.peek();
         assertEquals(item, result);
         // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+       // fail("The test case is a prototype.");
     }
 
     /**
-     * Test of size method, of class StackArrayList.
+     * Test of size method, of class StackVector.
      */
     @Test
     public void testSize() {
         System.out.println("size");
-        StackArrayList instance = new StackArrayList();
+        StackVector instance = new StackVector();
         int expResult = 0;
         int result = instance.size();
         assertEquals(expResult, result);
