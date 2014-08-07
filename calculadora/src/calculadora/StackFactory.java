@@ -20,7 +20,7 @@ public class StackFactory <E>{
  */
     
    public Stack<E> getStack() {
-       System.out.println("Ingrese el método que desea utilizar: StackArrayList\n StackVector\n StackList\n");
+       //System.out.println("Ingrese el método que desea utilizar: StackArrayList\n StackVector\n StackList\n");
     // seleccion de la implementacion a utilizar:
 	if (entry.equals("StackArrayList"))
             return new StackArrayList<E>(); //regresa ArrayList

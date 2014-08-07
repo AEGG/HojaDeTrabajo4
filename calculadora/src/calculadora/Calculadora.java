@@ -9,98 +9,104 @@ package calculadora;
 import java.io.*;
 
 public class Calculadora {
-	/*Atributos de la calse*/
-	private StackVector<Integer> data;
-        private Stack<Integer> pila;
-	private String car;
-	private int operando1,operando2,resultado;
-	private char aChar;						//Se guarda el caracter que se va a ir leyendo
-	
-	/**
-	 * Constuctor de la clase
-	 */
-	public Calculadora() {
+       private static Stack<Integer> datos;
+       
+       
+       public static void main(String[] args){
+        Calculadora calculadora = Singleton.getInstance();
+     
+    
+        StackFactory<Integer> fact=new StackFactory<Integer>();
+        datos=fact.getStack();
+        datos= new StackVector<Integer>();
+        String strLinea1=" ";
+        String strLinea= " ";		
+        /**
+         * Se lee la cadena ingresada en un archivo de texto
+         */
+		 try{
+            // Abrimos el archivo
+            FileInputStream fstream = new FileInputStream("C:\\Users\\Acer\\Documents\\UVG\\4to semestre\\Alg Estructura Datos\\HDT4\\HojaDeTrabajo4\\calculadora\\src\\calculadora\\texto.txt");
+            // Creamos el objeto de entrada
+            DataInputStream entrada = new DataInputStream(fstream);
+            // Creamos el Buffer de Lectura
+            BufferedReader buffer = new BufferedReader(new InputStreamReader(entrada));
             
-            StackFactory<Integer> fact = new StackFactory<Integer>();
-            pila = fact.getStack();
-            data = new StackVector<Integer>();
-            car="";
-            operando1=0;
-            operando2=0;
-            resultado=0;
-	}
-
-
-	/**
-	 * Metodo que muestra el resultado de la operacion en el archivo .txt
-	 */
-	public void muestraResultado() {
-	      File text = null;													//Objeto de tipo File
-	      FileReader fr = null;												//Se crea objeto lector de objetos File
-	      BufferedReader br = null;											//Objeto que me carga en el buffer
-	 
-	      try {
-	    	  String dir = System.getProperty("user.dir");
-	    	  text = new File (dir+"\\Datos.txt");									//Se abre el fichero
-	         
-	         fr = new FileReader (text);									//Lector del archivo
-	         br = new BufferedReader(fr);									//Se carga el archivo
-	
-	         car=br.readLine();										//Se guarda lo leido en stringDatos
-	      }
-	      catch(Exception e){
-	         e.printStackTrace();
-	      }finally{															//Se asegura que se cierre el fichero
-	         try{                    
-	            if( null != fr ){   
-	               fr.close();     
-	            }                  
-	         }catch (Exception e2){ 
-	            e2.printStackTrace();
-	         }
-	      }
-	          
-	  	//ciclo que compara cada caracter para saber si hacer push o pop y que operacion realizar
-	      for (int x=0; x<car.length(); x++){
-	    	  aChar=car.charAt(x);
-	          if (aChar=='+'){					//suma los 2 ultimos valores si encuentra un "+"
-	          	operando1 = data.pop();
-	          	operando2 = data.pop();
-	          	resultado = operando1 + operando2;
-	          	data.push(resultado);
-	          }
-
-	          if (aChar=='-'){					//resta los 2 ultimos valores si encuentra un "-"
-	          	operando1 = data.pop();
-	          	operando2 = data.pop();
-	          	resultado = operando1 - operando2;
-	          	data.push(resultado);
-	          }
-	         
-	          if (aChar=='*'){					//multiplica los 2 ultimos valores si encuentra un "*"
-	          	operando1 = data.pop();
-	          	operando2 = data.pop();
-	          	resultado = operando1 * operando2;
-	          	data.push(resultado);	        	
-	          }
-	          
-	          if (aChar=='/'){					//divide los 2 ultimos valores si encuentra un "/"
-	          	operando1 = data.pop();
-	          	operando2 = data.pop();
-	          	resultado = operando1 / operando2;
-	          	data.push(resultado);	        	
-	          }	        
-	          
-	          if (aChar=='0' || aChar=='1' || aChar=='2' || aChar=='3' 			//si encuentra un numero lo guarda en la pila
-	          		 || aChar=='4' || aChar=='5' || aChar=='6' || aChar=='7' 
-	          		 || aChar=='8' || aChar=='9'){
-	          	data.push((int)aChar-48);
-	          }
-	           
-	      }
-	      System.out.println("\n/*************************/ " );
-	      System.out.println("El resultado es: "+data.peek());
-	      System.out.println("/*************************/ " );
+            // Leer el archivo linea por linea
+            while ((strLinea1 = buffer.readLine()) != null)   {
+                 /**
+                 * Se imprime la cadena leída
+                 */
+		strLinea = strLinea1;
+                System.out.println ("Operacion ingresada: "+strLinea);
+                
+            }
+            // Cerramos el archivo
+            entrada.close();
+        }
+		/**
+         * Se crea la excepción por si ocurre un error
+         */
+        catch (Exception e){ //Catch de excepciones
+            System.err.println("Ocurrio un error: " + e.getMessage());
+        } 
+         
+       int resultado=0;
+       int num1 = 0;
+       int num2 = 0;   
+	   /**
+        * Se crea el ciclo para la clasificación y operaciónes de la cadena ingresada
+        */
+       for(int i=0; i<strLinea.length(); i++){
+				/**
+                 * Si encuentra un +, suma los dos últimos elementos de la pila
+                 */
+                if(strLinea.charAt(i)=='+'){
+                    num1 = datos.pop();
+                    num2 = datos.pop();
+                    resultado = num1 + num2;
+                    datos.push(resultado);
+                }
+				/**
+                * Si encuentra un -, resta los dos últimos elementos de la pila
+                */
+                if(strLinea.charAt(i)=='-'){
+                    num1 = datos.pop();
+                    num2 = datos.pop();
+                    resultado = num2 - num1;
+                    datos.push(resultado);
+                }
+				/**
+                * Si encuentra un *, multiplica los dos últimos elementos de la pila
+                */
+                if(strLinea.charAt(i)=='*'){
+                    num1 = datos.pop();
+                    num2 = datos.pop();
+                    resultado = num1 * num2;
+                    datos.push(resultado);
+                }
+				/**
+                * Si encuentra un /, divide el penúltimo elemento dentro del último elemento de la pila
+                */
+                if(strLinea.charAt(i)=='/'){
+                    num1 = datos.pop();
+                    num2 = datos.pop();
+                    resultado = num2 / num1;
+                    datos.push(resultado);
+                }
+				/**
+                * Si encuentra un número, lo guarda en la pila
+                */
+                if (Character.getNumericValue(strLinea.charAt(i))>=0)
+                {
+				   int dato=Character.getNumericValue(strLinea.charAt(i));
+                   datos.push(dato);
+                }      
+        }
+	   /**
+       * imprime el resultado en pantalla
+       */
+       System.out.println ("El resultado de las operaciones es: "+datos.pop()); 
 
 	}
 }
