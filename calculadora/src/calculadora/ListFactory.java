@@ -6,13 +6,16 @@
  */
 package calculadora;
 
+
 /**
  *
  * @author Acer
  */
 public class ListFactory <E>{
-    public List<E> getList(String entry) {
-    // seleccion de la implementacion a utilizar:
+   String entry;
+    public List<E> getList() {
+        
+   // seleccion de la implementacion a utilizar:
 	if (entry.equals("CircularList"))
             return new CircularList<E>(); //regresa CircularList
 

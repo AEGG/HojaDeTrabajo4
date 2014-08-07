@@ -19,8 +19,8 @@ public class StackLista<E>  extends AbstractStack<E>{
          */
 	public StackLista()
 	{
-		FactoryList<E> factory=new FactoryList<E>();
-                list=factory.getList();
+		ListFactory<E> fact=new ListFactory<E>();
+                list=fact.getList();
 	}
         
         /**
