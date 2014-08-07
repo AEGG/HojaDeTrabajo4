@@ -13,7 +13,7 @@ import java.util.*;
   
 
 public class StackVector<E> extends AbstractStack <E>{
-	
+//Tomado como base de la hoja de trabajo 2 ya que se empleo el mismo stackVector	
     protected Vector<E> vector;
     private int cont=0;
     private E temporal;
