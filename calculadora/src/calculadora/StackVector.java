@@ -28,7 +28,7 @@ public class StackVector<E> extends AbstractStack <E>{
         
         /**
          * 
-         * @param item 
+         * 
          * Recibe un valor y lo coloca en la posición de un contador
          */
 	public void push(E item)

@@ -14,7 +14,7 @@ package calculadora;
  */
 public interface List<E> 
 {
-
+   //Codigo realizado en base a ejercicio de clase
    public int size();
    // post: returns number of elements in list
 

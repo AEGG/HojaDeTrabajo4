@@ -10,7 +10,7 @@ package calculadora;
 public class doubleLinkedList<E> extends AbstractList<E>{
     
     
-    
+//codigo tomado de ejemplo visto en clase
     protected int count;
     protected DoublyLinkedNode<E> head;
     protected DoublyLinkedNode<E> tail;
@@ -35,12 +35,12 @@ public class doubleLinkedList<E> extends AbstractList<E>{
        count++;
     }
     
-    @Override
+  
     public int size() {
         return count;
     }
 
-    @Override
+  
     public E removeFirst() {
         E val=head.value();
         DoublyLinkedNode<E> nextHead=head.next();
@@ -49,7 +49,7 @@ public class doubleLinkedList<E> extends AbstractList<E>{
         return val;
     }
     
-    @Override
+   
     public E getFirst() {
         return head.value();
     }

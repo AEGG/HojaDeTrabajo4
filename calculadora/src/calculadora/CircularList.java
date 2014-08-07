@@ -51,13 +51,13 @@ public class CircularList<E> extends AbstractList<E> {
         }
     }
 
-    @Override
+   
     public E removeFirst() {
         E val=null;
         if(tail!=null){
-            val=tail.next().value();                    //Se gurada el valor
-            Node<E> newFirst=tail.next().next();        //se crea la referencia al nuevo primer valor
-            tail.setNext(newFirst);                     //se setea como el nuevo primer valor
+            val=tail.next().value();                    
+            Node<E> newFirst=tail.next().next();        
+            tail.setNext(newFirst);                     
         }
         count--;
         return val;

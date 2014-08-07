@@ -15,7 +15,7 @@ public class StackLista<E>  extends AbstractStack<E>{
     protected List<E> list;
    
         /**
-         * Método que inicializa el objeto de tipo vector
+         * Método que inicializa el objeto de tipo lista
          */
 	public StackLista()
 	{
@@ -25,8 +25,8 @@ public class StackLista<E>  extends AbstractStack<E>{
         
         /**
          * 
-         * @param item 
-         * Recibe un valor y lo coloca en la posición de un contador
+         *
+         * Recibe un valor y lo coloca en la posicion
          */
 	public void push(E item)
 	{

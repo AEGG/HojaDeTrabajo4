@@ -10,7 +10,7 @@ package calculadora;
 
 public class singlyLinkedList <E> extends AbstractList<E>
 {
-
+//Codigo realizado en base a ejercicio de clase
    protected int count; // list size
    protected Node<E> head; // ref. to first element
 
