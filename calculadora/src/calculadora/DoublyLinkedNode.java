@@ -31,4 +31,53 @@ public DoublyLinkedNode(E v)
     this(v,null,null);
 }
 
+/** 
+     * Pre: ninguna.
+     * Post: regresa la referencia al elemento posterior en la lista.
+     */ 
+    public DoublyLinkedNode<E> next() {
+        return nextElement;
+    }
+    
+    /** 
+     * Pre: ninguna.
+     * Post: regresa la referencia al elemento anterior en la lista.
+     */ 
+    public DoublyLinkedNode<E> previous() {
+        return previousElement;
+    }
+    
+    /** 
+     * Pre: ninguna.
+     * Post: establece una referencia a un elemento posterior (next).
+     */ 
+    public void setNext(DoublyLinkedNode<E> next) {
+        nextElement = next;
+    }
+    
+    /** 
+     * Pre: ninguna.
+     * Post: establece una referencia a un elemento previo (previous).
+     */ 
+    public void setPrevious(DoublyLinkedNode<E> previous) {
+        previousElement = previous;
+    }
+    
+    /**
+     * Pre: ninguna.
+     * Post: regresa el valor asociado al elemento.
+     */ 
+    public E value() {
+        return data;
+    }
+
+    /** 
+     * Pre: ninguna.
+     * Post: establece el valor asociado al elemento.
+     */
+    public void setValue(E value) {
+        data = value;
+    }
+
+
 }

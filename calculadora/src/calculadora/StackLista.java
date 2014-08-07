@@ -6,20 +6,18 @@
 
 package calculadora;
 
-import java.util.List;
+
 
 public class StackLista<E>  extends AbstractStack<E>{
 	
-    protected List<E> data;
-    private int cont=0;
-    private E temporal;
-    
+    protected List<E> list;
+   
         /**
          * Método que inicializa el objeto de tipo vector
          */
 	public StackLista()
 	{
-		data = new List<E>();
+		list = new List<E>() {};
 	}
         
         /**
@@ -29,8 +27,8 @@ public class StackLista<E>  extends AbstractStack<E>{
          */
 	public void push(E item)
 	{
-                data.add(item);
-                cont++;
+                list.addFirst(item);
+                
 	}
         
         /**
@@ -39,7 +37,10 @@ public class StackLista<E>  extends AbstractStack<E>{
          */
 	public E pop()
 	{                
-            return data.remove(cont);
+                temporal=list.elementAt(cont-1);
+                list.removeElementAt(cont-1);
+                cont--;
+		return temporal;
 	}
         
         /**
@@ -48,7 +49,7 @@ public class StackLista<E>  extends AbstractStack<E>{
          */
 	public E peek()
 	{
-		return data.get(cont-1);
+		return list.elementAt(cont-1);
 	}
         
 	/**
@@ -57,17 +58,10 @@ public class StackLista<E>  extends AbstractStack<E>{
          */
 	public int size()
 	{
-		return cont;
+		return data.size();
 	}
         
-        /**
-         * 
-         * @return si la pila está vacía o no
-         */
-	public boolean empty()
-	{
-		return cont == 0;
-	}
+        
     
 }
 

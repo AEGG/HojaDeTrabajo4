@@ -6,7 +6,6 @@
 
 package calculadora;
 
-import java.util.Vector;
 
 import java.util.*;
 
@@ -15,9 +14,9 @@ import java.util.*;
  * Clase que implementa la intefaz Stack
  * @param <E>, que define el tipo de datos que recibe la pila
  */
-public class StackVector<E>  implements Stack<E>{
+public class StackVector<E> extends AbstractStack <E>{
 	
-    protected Vector<E> data;
+    protected Vector<E> vector;
     private int cont=0;
     private E temporal;
     
@@ -26,7 +25,7 @@ public class StackVector<E>  implements Stack<E>{
          */
 	public StackVector()
 	{
-		data = new Vector<E>();
+		vector = new Vector<E>();
 	}
         
         /**
@@ -36,7 +35,7 @@ public class StackVector<E>  implements Stack<E>{
          */
 	public void push(E item)
 	{
-                data.addElement(item);
+                vector.insertElementAt(item,cont);
                 cont++;
 	}
         
@@ -46,9 +45,9 @@ public class StackVector<E>  implements Stack<E>{
          */
 	public E pop()
 	{                
-                temporal=data.get(cont-1);
-                data.removeElementAt(cont-1);
-           
+                temporal=vector.elementAt(cont-1);
+                vector.removeElementAt(cont-1);
+                cont--;
 		return temporal;
 	}
         
@@ -58,7 +57,7 @@ public class StackVector<E>  implements Stack<E>{
          */
 	public E peek()
 	{
-		return data.get(cont-1);
+		return vector.elementAt(cont-1);
 	}
         
 	/**
@@ -70,13 +69,4 @@ public class StackVector<E>  implements Stack<E>{
 		return cont;
 	}
         
-        /**
-         * 
-         * @return si la pila está vacía o no
-         */
-	public boolean empty()
-	{
-		return cont == 0;
-	}
-    
 }

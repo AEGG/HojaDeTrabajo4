@@ -8,8 +8,8 @@ package calculadora;
 
 /**
  *
- * @author Javier Bucaro
+ * @author Acer
  */
-public class Circular {
+public class CircularList {
     
 }
