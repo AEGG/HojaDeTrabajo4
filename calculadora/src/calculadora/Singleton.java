@@ -14,6 +14,11 @@ package calculadora;
  */
 public class Singleton {
     private static Calculadora INSTANCE = null;
+    
+    public static void main(String[] args){
+        Calculadora calculadora = Singleton.getInstance();
+        calculadora.muestraResultado();
+    }
  
     // Private constructor suppresses 
     private Singleton(){}
@@ -30,4 +35,5 @@ public class Singleton {
         if (INSTANCE == null) createInstance();
         return INSTANCE;
     }
+    
 }

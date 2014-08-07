@@ -6,18 +6,21 @@
  */
 package calculadora;
 
+import java.util.Scanner;
 /**
  *
  * @author Acer
  */
 public class StackFactory <E>{
+    Scanner entry = new Scanner(System.in);
 /**
  * tomado del ejemplo de clase
  * se utiliza el patron Factory
  * selecciona la implementacion a utilizar para un stack 
  */
     
-   public Stack<E> getStack(String entry) {
+   public Stack<E> getStack() {
+       System.out.println("Ingrese el método que desea utilizar: StackArrayList\n StackVector\n StackList\n");
     // seleccion de la implementacion a utilizar:
 	if (entry.equals("StackArrayList"))
             return new StackArrayList<E>(); //regresa ArrayList

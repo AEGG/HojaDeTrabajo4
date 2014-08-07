@@ -6,15 +6,18 @@
  */
 package calculadora;
 
+import java.util.Scanner;
+
 
 /**
  *
  * @author Acer
  */
 public class ListFactory <E>{
-   String entry;
+   Scanner entry = new Scanner(System.in);
     public List<E> getList() {
         
+        System.out.println("Ingrese el método que desea utilizar: CircularList\n doubleLinkedList\n singlyLinkedList\n");
    // seleccion de la implementacion a utilizar:
 	if (entry.equals("CircularList"))
             return new CircularList<E>(); //regresa CircularList
