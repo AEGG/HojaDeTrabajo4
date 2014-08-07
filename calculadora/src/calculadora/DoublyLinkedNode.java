@@ -60,8 +60,8 @@ public DoublyLinkedNode(E v)
      * Pre: ninguna.
      * Post: establece una referencia a un elemento previo (previous).
      */ 
-    public void setPrevious(DoublyLinkedNode<E> setprev) {
-        previousElement = setprev;
+    public void setPrevious(DoublyLinkedNode<E> v) {
+        previousElement = v;
     }
     
     /**
