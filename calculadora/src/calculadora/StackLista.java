@@ -1,8 +1,10 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * UVG
+ * HDT4
+ * Aaron Giron 13042
+ * Javier Bucaro 130
  */
+
 
 package calculadora;
 
@@ -17,7 +19,8 @@ public class StackLista<E>  extends AbstractStack<E>{
          */
 	public StackLista()
 	{
-		list = new List<E>() {};
+		FactoryList<E> factory=new FactoryList<E>();
+                list=factory.getList();
 	}
         
         /**
@@ -37,10 +40,7 @@ public class StackLista<E>  extends AbstractStack<E>{
          */
 	public E pop()
 	{                
-                temporal=list.elementAt(cont-1);
-                list.removeElementAt(cont-1);
-                cont--;
-		return temporal;
+                return list.removeFirst();
 	}
         
         /**
@@ -49,7 +49,7 @@ public class StackLista<E>  extends AbstractStack<E>{
          */
 	public E peek()
 	{
-		return list.elementAt(cont-1);
+		return list.getFirst();
 	}
         
 	/**
@@ -58,7 +58,7 @@ public class StackLista<E>  extends AbstractStack<E>{
          */
 	public int size()
 	{
-		return data.size();
+		return list.size();
 	}
         
         

@@ -1,17 +1,14 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * UVG
+ * HDT4
+ * Aaron Giron 13042
+ * Javier Bucaro 130
  */
 
 package calculadora;
 
-/**
- *
- * @author Javier Bucaro
- */
 public abstract class AbstractStack<E> implements Stack<E> {
-    private int cont;
+    
     
     public AbstractStack(){
    
@@ -21,7 +18,4 @@ public abstract class AbstractStack<E> implements Stack<E> {
         return size()==0;
     }
     
-    public int size(){
-        return cont;
-    }
 }

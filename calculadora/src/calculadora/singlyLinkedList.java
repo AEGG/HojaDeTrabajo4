@@ -6,7 +6,7 @@
 
 package calculadora;
 
-public class singlyLinkedList<E> extends AbstractList<E>
+public class singlyLinkedList <E> extends AbstractList<E>
 {
 
    protected int count; // list size
@@ -53,39 +53,4 @@ public class singlyLinkedList<E> extends AbstractList<E>
       return head.value();
   }
   
-  public void addLast(E value)
-  // post: adds value to end of list
-  {
-      // location for new value
-      Node<E> temp = new Node<E>(value,null);
-      if (head != null)
-     {
-         // pointer to possible tail
-         Node<E> finger = head;
-         while (finger.next() != null)
-         {
-                finger = finger.next();
-         }
-		 
-         finger.setNext(temp);
-      } else head = temp;
-	  
-	  count++;
-	  
-   }
-   
-   
-   public boolean contains(E value)
-   // pre: value is not null
-   // post: returns true iff value is found in list
-  {
-      Node<E> finger = head;
-	  
-      while (finger != null &&
-             !finger.value().equals(value))
-     {
-          finger = finger.next();
-      }
-      return finger != null;
-   }
 }

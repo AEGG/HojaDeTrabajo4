@@ -23,29 +23,10 @@ public interface List<E>
    public void addFirst(E value);
    // post: value is added to beginning of list
 
-   public void addLast(E value);
-   
-   
+
    public E getFirst();
    
-   public E getLast();
-   // pre: list is not empty
-   // post: returns first value in list
-
-   public E removeFirst();
-   
-   public E removeLast();
-   
-   public E remove(); 
-   
-   public E remove(int i);
-    
-   public void add(E value);
-   
-   public E get();
   
-   public E get(int i);
-   
-   public void add(int i, E o);
+   public E removeFirst();
 }
 

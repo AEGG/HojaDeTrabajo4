@@ -1,16 +1,17 @@
-/**
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/*
+ * UVG
+ * HDT4
+ * Aaron Giron 13042
+ * Javier Bucaro 130
  */
 
 package calculadora;
 
 import java.util.ArrayList;
 
-public abstract class StackArrayList<E> extends AbstractStack<E>{
+public class StackArrayList<E> extends AbstractStack<E>{
 	protected ArrayList<E> data;
-
+//Codigo tomado de ejemplos de clase
 	public StackArrayList()
 	// post: constructs a new, empty stack
 	{
